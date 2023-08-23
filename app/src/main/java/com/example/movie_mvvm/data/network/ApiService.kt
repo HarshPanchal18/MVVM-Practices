@@ -10,6 +10,7 @@ interface ApiService {
         const val IMAGE_URL = "https://image.tmdb.org/t/p/w500/"
         const val apiKey = "2c2f00da593005799f2f1ecb3f773145"
     }
+
     @GET("discover/movie?api_key=${apiKey}")
-    suspend fun getMovies() : Response<Movies>
+    suspend fun getMovies(): Response<Movies>
 }
