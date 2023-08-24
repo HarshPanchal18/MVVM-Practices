@@ -7,7 +7,7 @@ import retrofit2.http.GET
 interface ApiService {
     companion object {
         const val BASE_URL = "https://api.themoviedb.org/3/"
-        const val IMAGE_URL = "https://image.tmdb.org/t/p/w500/"
+        const val IMAGE_URL = "https://image.tmdb.org/t/p/w500"
         const val apiKey = "2c2f00da593005799f2f1ecb3f773145"
     }
 

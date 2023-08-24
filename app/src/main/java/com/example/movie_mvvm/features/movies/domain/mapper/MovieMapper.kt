@@ -9,11 +9,11 @@ class MovieMapper @Inject constructor() : Mapper<Movies?, List<Movies.Results>?>
         return from?.results?.map { data ->
             data.apply {
                 Movies.Results(
-                    id = id, // it.id
-                    originalLanguage = originalLanguage,
+                    id = id,
+                    original_language = original_language,
                     overview = overview,
-                    posterPath = posterPath,
-                    voteAverage = voteAverage
+                    poster_path = poster_path,
+                    vote_average = vote_average
                 )
             }
         }

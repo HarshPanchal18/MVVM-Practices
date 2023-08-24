@@ -33,17 +33,18 @@ fun <T> Flow<ApiState<T>>.onSuccess(action: suspend (T) -> Unit): Flow<ApiState<
         return@transform emit(result)
     }
 
-fun <T> Flow<ApiState<T>>.onFailure(action: suspend (Throwable?) -> Unit): Flow<ApiState<T>> = transform { result ->
-    if(result is ApiState.Failure) {
-        action(result.message)
+fun <T> Flow<ApiState<T>>.onFailure(action: suspend (Throwable?) -> Unit): Flow<ApiState<T>> =
+    transform { result ->
+        if (result is ApiState.Failure) {
+            action(result.message)
+        }
+        return@transform emit(result)
     }
-    return@transform emit(result)
-}
 
-
-fun <T> Flow<ApiState<T>>.onLoading(action: suspend () -> Unit) : Flow<ApiState<T>> = transform { result ->
-    if(result is ApiState.Loading) {
-        action()
+fun <T> Flow<ApiState<T>>.onLoading(action: suspend () -> Unit): Flow<ApiState<T>> =
+    transform { result ->
+        if (result is ApiState.Loading) {
+            action()
+        }
+        return@transform emit(result)
     }
-    return@transform emit(result)
-}

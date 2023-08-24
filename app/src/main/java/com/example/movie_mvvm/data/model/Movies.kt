@@ -2,24 +2,24 @@ package com.example.movie_mvvm.data.model
 
 data class Movies(
     val page: Int?,
-    val totalPages: Int?,
+    val total_pages: Int?,
     val results: List<Results>,
-    val totalResults: Int?
+    val total_results: Int?
 ) {
     data class Results(
         val overview: String? = null,
-        val originalLanguage: String? = null,
-        val originalTitle: String? = null,
+        val original_language: String? = null,
+        val original_title: String? = null,
         val video: Boolean? = null,
         val title: String? = null,
-        val genreIds: List<Int?>? = null,
-        val posterPath: String? = null,
-        val backdropPath: String? = null,
-        val releaseDate: String? = null,
+        val genre_ids: List<Int?>? = null,
+        val poster_path: String? = null,
+        val backdrop_path: String? = null,
+        val release_date: String? = null,
         val popularity: Any? = null,
-        val voteAverage: Any? = null,
+        val vote_average: Any? = null,
         val id: Int? = null,
         val adult: Boolean? = null,
-        val voteCount: Int? = null
+        val vote_count: Int? = null
     )
 }
