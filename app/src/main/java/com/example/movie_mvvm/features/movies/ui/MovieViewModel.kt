@@ -22,18 +22,20 @@ class MovieViewModel @Inject constructor(
     private val _response: MutableState<MovieState> = mutableStateOf(MovieState())
     val response = _response
 
+    private val _movieDetails: MutableState<Movies.Results> = mutableStateOf(Movies.Results())
+    val movieDetail = _movieDetails
+
+    fun setMovie(data: Movies.Results) {
+        _movieDetails.value = data
+    }
+
     init {
         viewModelScope.launch {
             useCase.getMovies()
-                .onSuccess {
-                    _response.value = MovieState(data = it!!)
-                }
-                .onFailure {
-                    _response.value = MovieState(error = it?.message!!)
-                }
-                .onLoading {
-                    _response.value = MovieState(isLoading = true)
-                }.collect()
+                .onSuccess { _response.value = MovieState(data = it!!) }
+                .onFailure { _response.value = MovieState(error = it?.message!!) }
+                .onLoading { _response.value = MovieState(isLoading = true) }
+                .collect()
         }
     }
 

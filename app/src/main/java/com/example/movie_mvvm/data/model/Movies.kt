@@ -16,8 +16,8 @@ data class Movies(
         val poster_path: String? = null,
         val backdrop_path: String? = null,
         val release_date: String? = null,
-        val popularity: Any? = null,
-        val vote_average: Any? = null,
+        val popularity: String? = null,
+        val vote_average: String? = null,
         val id: Int? = null,
         val adult: Boolean? = null,
         val vote_count: Int? = null
